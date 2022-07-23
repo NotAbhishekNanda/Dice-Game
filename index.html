@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Dice game</title>
+  <script src="https://kit.fontawesome.com/6d9f33d815.js" crossorigin="anonymous"></script><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<div class="selection-container avatar-container">
+    <div class="item-list">
+        <div class="item selected" data-avatar="fa-user"><i class="fas fa-user"></i></div>
+        <div class="item" data-avatar="fa-user-nurse"><i class="fas fa-user-nurse"></i></div>
+        <div class="item" data-avatar="fa-user-astronaut"><i class="fas fa-user-astronaut"></i></div>
+        <div class="item" data-avatar="fa-user-secret"><i class="fas fa-user-secret"></i></div>
+        <div class="item" data-avatar="fa-user-tie"><i class="fas fa-user-tie"></i></div>
+        <div class="item" data-avatar="fa-user-ninja"><i class="fas fa-user-ninja"></i></div>
+        <div class="item" data-avatar="fa-user-graduate"><i class="fas fa-user-graduate"></i></div>
+        <div class="item" data-avatar="fa-user-injured"><i class="fas fa-user-injured"></i></div>
+        <div class="item" data-avatar="fa-poo"><i class="fas fa-poo"></i></div>
+    </div>
+</div>
+
+<div class="selection-container color-container">
+    <div class="item-list">
+        <div class="item color1" data-color="hsl(0deg, 80%, 60%)"></div>
+        <div class="item color2" data-color="hsl(40deg, 80%, 60%)"></div>
+        <div class="item color3" data-color="hsl(80deg, 80%, 60%)"></div>
+        <div class="item color4 selected" data-color="hsl(120deg, 80%, 60%)"></div>
+        <div class="item color5" data-color="hsl(160deg, 80%, 60%)"></div>
+        <div class="item color6" data-color="hsl(200deg, 80%, 60%)"></div>
+        <div class="item color7" data-color="hsl(240deg, 80%, 60%)"></div>
+        <div class="item color8" data-color="hsl(280deg, 80%, 60%)"></div>
+        <div class="item color9" data-color="hsl(320deg, 80%, 60%)"></div>
+    </div>
+</div>
+
+<h1 class="title">My great dice game</h1>
+
+<div class="game-board">
+    <div class="slide-content">
+
+        <div class="slide slide-1">
+
+            <!-- ====== player quantity ====== -->
+            <button class="choose-players-qty button-hover-shadow" data-qty="1">
+                <span>1 player</span>
+                <span><i class="fas fa-user"></i> vs <i class="fas fa-desktop"></i></span>
+
+            </button>
+            <button class="choose-players-qty button-hover-shadow" data-qty="2">
+                <span>2 players</span>
+                <span><i class="fas fa-user"></i> vs <i class="fas fa-user"></i></span>
+            </button>
+        </div>
+
+
+        <!-- ====== player's settings ====== -->
+        <div class="slide slide-2">
+            <h2 class="title player-settings">Player 1</h2>
+
+            <form class="players-identity">
+
+                <div class="player-option-container">
+
+                    <div class="player-avatar">
+                        Your avatar :
+                    </div>
+
+                    <div class="my-avatar choose-box">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                </div>
+
+                <div class="player-option-container">
+
+                    <label for="player-name" class="player-option">
+                        Your name :
+                    </label>
+
+                    <input type="text" class="name-field" id="player-name" value="Foo" maxlength="10">
+
+                </div>
+
+                <div class="player-option-container">
+
+                    <div class="player-color">
+                        Your color :
+                    </div>
+
+                    <div class="my-color choose-box">
+                    </div>
+
+                </div>
+
+                <button type="submit" class="submit-button  button-hover-shadow">
+                    OK
+                </button>
+
+            </form>
+        </div>
+
+        <!-- ====== game board ====== -->
+        <div class="slide slide-3">
+
+            <div class="player-container player-1">
+                <div class="player-id">
+                    <span class="player-avatar">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <div class="player-name"></div>
+                </div>
+                <div class="player-informations">
+                    <div class="player-score-wrapper">
+                        My score : <span class="player-score"></span>
+                    </div>
+                    <div class="player-total"></div>
+                </div>
+            </div>
+
+            <div class="board-container">
+
+                <div class="dice-wrapper">
+                    <div class='dice-container'>
+                        <div class='dice'>
+                            <div class='face' data-id='1'>
+                                <div class="point point-middle point-center">
+                                </div>
+                            </div>
+                            <div class='face' data-id='2'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='6'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-top point-left">
+                                </div>
+                                <div class="point point-middle point-right">
+                                </div>
+                                <div class="point point-middle point-left">
+                                </div>
+                                <div class="point point-bottom point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='5'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-top point-left">
+                                </div>
+                                <div class="point point-middle point-center">
+                                </div>
+                                <div class="point point-bottom point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='3'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-middle point-center">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='4'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-top point-left">
+                                </div>
+                                <div class="point point-bottom point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="padlock">
+                        </div>
+                    </div>
+
+                    <div class='dice-container'>
+                        <div class='dice'>
+                            <div class='face' data-id='1'>
+                                <div class="point point-middle point-center">
+                                </div>
+                            </div>
+                            <div class='face' data-id='2'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='6'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-top point-left">
+                                </div>
+                                <div class="point point-middle point-right">
+                                </div>
+                                <div class="point point-middle point-left">
+                                </div>
+                                <div class="point point-bottom point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='5'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-top point-left">
+                                </div>
+                                <div class="point point-middle point-center">
+                                </div>
+                                <div class="point point-bottom point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='3'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-middle point-center">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='4'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-top point-left">
+                                </div>
+                                <div class="point point-bottom point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="padlock">
+                        </div>
+                    </div>
+
+                    <div class='dice-container'>
+                        <div class='dice'>
+                            <div class='face' data-id='1'>
+                                <div class="point point-middle point-center">
+                                </div>
+                            </div>
+                            <div class='face' data-id='2'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='6'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-top point-left">
+                                </div>
+                                <div class="point point-middle point-right">
+                                </div>
+                                <div class="point point-middle point-left">
+                                </div>
+                                <div class="point point-bottom point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='5'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-top point-left">
+                                </div>
+                                <div class="point point-middle point-center">
+                                </div>
+                                <div class="point point-bottom point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='3'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-middle point-center">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                            <div class='face' data-id='4'>
+                                <div class="point point-top point-right">
+                                </div>
+                                <div class="point point-top point-left">
+                                </div>
+                                <div class="point point-bottom point-right">
+                                </div>
+                                <div class="point point-bottom point-left">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="padlock">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="action-wrapper">
+
+                    <button class="roll-button button-hover-shadow">ROLL</button>
+
+                    <div class="score">0</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="player-container player-2">
+                <div class="player-id">
+                    <span class="player-avatar">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <div class="player-name"></div>
+                </div>
+                <div class="player-informations">
+                    <div class="player-score-wrapper">
+                        My score : <span class="player-score"></span>
+                    </div>
+                    <div class="player-total"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <form class="message-modal informations">
+        <div class="bubble">
+            <div class="my-message"></div>
+            <button type="submit" class="submit-button  button-hover-shadow">ok</button>
+        </div>
+        <div class="presenter">
+        </div>
+    </form>
+
+</div>
+
+<div class="option-container">
+    <input id="option-checkbox" type="checkbox">
+    <div class="option-wrapper slide-content">
+
+        <h2 class="title">Options</h2>
+
+        <div class="options">
+
+            <div class="sliders-container">
+
+                <div class="music-container">
+                    <div class="options-title">
+                        Music
+                    </div>
+                    <div class="slider-container">
+                        <span class="music-symbol">
+                            <i class="fas fa-music"></i>
+                        </span>
+                        <input type="range" min="0" max="100" value="50" class="slider" id="music">
+                    </div>
+                </div>
+
+                <div class="sound-container">
+                    <div class="options-title">
+                        Sound
+                    </div>
+                    <div class="slider-container">
+                        <span class="sound-symbol">
+                            <i class="fas fa-volume-up"></i>
+                        </span>
+                        <input type="range" min="0" max="100" value="50" class="slider" id="sound">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="rules">
+
+                <input id="rules-checkbox" type="checkbox">
+                <div class="rules-wrapper">
+                    <h3>
+                        Aim of the game :
+                    </h3>
+                    To be the first player to reach 0.
+
+                    <h3>
+                        How to play :
+                    </h3>
+                    You have 3 rolls.<br />
+                    At the end of each roll, you can decide to lock / unlock any dice of your choice.<br />
+                    At the end of the turn, the player with the best score can substract the turn score to the total
+                    score.
+
+                    <h3>
+                        Values of the combinations :
+                    </h3>
+                    3 of a kind : 250 points<br />
+                    sum of the dice x 10.
+
+                    <h3>Good luck !</h3>
+
+                </div>
+                <label for="rules-checkbox" class="toggle-rules">
+                    Rules
+                </label>
+
+            </div>
+
+            <button class="reset-button options-title button-hover-shadow">
+                reset the game
+            </button>
+        </div>
+
+    </div>
+    <label for="option-checkbox" class="toggle-option">
+        <i class="fas fa-cog"></i>
+    </label>
+</div>
+
+<form class="message-modal reset">
+    <div class="bubble">
+        <div class="message">Are you sure you want to reset the game ? <br />
+            Everything will be lost ! </div>
+
+        <button class="submit-button confirm-reset button-hover-shadow">yes</button>
+
+        <div class="submit-button reject-reset button-hover-shadow">no</div>
+    </div>
+    <div class="presenter">
+        <i class="fas fa-flushed"></i>
+    </div>
+</form>
+
+
+
+<!-- signature -->
+<a class="signature" target="_blank">
+    <div class="link">
+        <span class="brace">
+            {
+        </span>
+        <span class="before">
+            <span class="before-text">
+                &nbsp;by
+            </span>
+        </span>
+        <span class="my-name">
+            b
+        </span>
+        <span class="after">
+            <span class="after-text">
+                <span class="spin">apu</span>
+                <span>n</span>
+            </span>
+        </span>
+        <span class="brace">
+            }
+        </span>
+    </div>
+</a>
+
+  <script  src="./script.js"></script>
+
+</body>
+</html>
